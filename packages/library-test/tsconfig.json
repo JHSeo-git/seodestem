@@ -3,7 +3,6 @@
   "include": ["src/**/*"],
   "exclude": ["**/*.d.ts"],
   "compilerOptions": {
-    "lib": ["esnext"],
-    "declarationDir": "dist/types"
+    "lib": ["esnext"]
   }
 }

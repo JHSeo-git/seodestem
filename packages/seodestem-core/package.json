@@ -1,7 +1,21 @@
 {
-  "name": "seodestem-core",
+  "name": "@seodestem/core",
   "packageManager": "yarn@3.0.0",
+  "version": "0.0.1",
+  "source": "src/index.ts",
+  "main": "dist/bundle.js",
+  "types": "dist/types/index.d.ts",
+  "module": "dist/esm/bundle.js",
+  "scripts": {
+    "peer": "yarn explain peer-requirements",
+    "clean": "rm -rf ./dist",
+    "tsc:type": "tsc --emitDeclarationOnly",
+    "build": "yarn clean | rollup -c rollup.config.js | yarn tsc:type"
+  },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^20.0.0",
+    "@rollup/plugin-typescript": "^8.2.5",
+    "tslib": "^2.3.0",
     "typescript": "^4.3.5"
   }
 }

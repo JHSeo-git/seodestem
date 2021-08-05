@@ -2,19 +2,45 @@
   "name": "@seodestem/core",
   "packageManager": "yarn@3.0.0",
   "version": "0.0.1",
+  "description": "seo's design system core library",
+  "homepage": "https://github.com/JHSeo-git/seodestem/blob/master/packages/seodestem-core/README.md",
+  "license": "MIT",
+  "author": "JHSeo <qnfqnfqnf@gmail.com>",
   "source": "src/index.ts",
-  "main": "dist/bundle.js",
   "types": "dist/types/index.d.ts",
+  "main": "dist/cjs/bundle.js",
   "module": "dist/esm/bundle.js",
+  "exports": {
+    "require": "./dist/cjs/bundle.js",
+    "import": "./dist/esm/bundle.js"
+  },
   "scripts": {
     "peer": "yarn explain peer-requirements",
-    "clean": "rm -rf ./dist",
+    "clean": "rimraf ./dist",
     "tsc:type": "tsc --emitDeclarationOnly",
-    "build": "yarn clean | rollup -c rollup.config.js | yarn tsc:type"
+    "build": "rollup -c rollup.config.js && yarn tsc:type",
+    "build:debug": "rollup -c rollup.config.js --debug && yarn tsc:type",
+    "build:babel-esm": "BABEL_ENV=esm babel src --extensions '.ts' --out-dir 'dist/bundles/esm' --source-maps",
+    "build:babel-cjs": "BABEL_ENV=cjs babel src --extensions '.ts' --out-dir 'dist/bundles/cjs' --source-maps",
+    "build:all": "yarn clean && yarn build && yarn build:babel-esm && yarn build:babel-cjs"
   },
   "devDependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.15.0",
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-typescript": "^7.15.0",
+    "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^20.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.4",
     "@rollup/plugin-typescript": "^8.2.5",
+    "@types/babel__core": "^7",
+    "@types/babel__plugin-transform-runtime": "^7",
+    "@types/babel__preset-env": "^7",
+    "@types/node": "^16.4.12",
+    "@types/rimraf": "^3",
+    "rimraf": "^3.0.2",
+    "rollup-plugin-terser": "^7.0.2",
     "tslib": "^2.3.0",
     "typescript": "^4.3.5"
   }

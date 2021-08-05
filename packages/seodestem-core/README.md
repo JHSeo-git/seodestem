@@ -6,6 +6,8 @@
 > - https://github.com/nhn/tui.editor/blob/master/libs/toastmark/rollup.config.js
 > - https://so-so.dev/pattern/mono-repo-config/
 > - https://velog.io/@altmshfkgudtjr/yarn2%EC%99%80-%ED%95%A8%EA%BB%98-Plug-n-Play%EB%A5%BC-%EC%A0%81%EC%9A%A9%ED%95%B4%EB%B3%B4%EC%9E%90
+> - https://dev.to/remshams/rolling-up-a-multi-module-system-esm-cjs-compatible-npm-library-with-typescript-and-babel-3gjg
+> - ![chain](https://res.cloudinary.com/practicaldev/image/fetch/s--crgTkvZX--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://github.com/remshams/node-module-esm/blob/images/images/build-chain.jpeg%3Fraw%3Dtrue)
 
 1. rollup global 설치
 2. rollup.config.js 생성

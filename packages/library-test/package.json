@@ -1,12 +1,15 @@
 {
   "name": "library-test",
   "packageManager": "yarn@3.0.0",
+  "main": "./src/index.ts",
   "scripts": {
     "build": "tsc",
-    "start": "yarn node src/index.js"
+    "start": "yarn build | yarn node dist/index.js",
+    "start:ts": "yarn ts-node"
   },
   "devDependencies": {
     "@types/node": "^16.4.11",
+    "ts-node": "^10.1.0",
     "typescript": "^4.3.5"
   },
   "dependencies": {

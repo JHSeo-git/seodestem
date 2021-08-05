@@ -22,12 +22,26 @@ yarn/sdks 중 vscode를 위한 sdk 설치
 yarn dlx @yarnpkg/sdks vscode
 ```
 
-## 3. yarn monorepo
+## 3. plugins typescript
+
+DT가 있으면 자동으로 추가해주는 기능을 제공하는 Plugin을 설치한다.
+
+```bash
+yarn plugin import typescript
+```
+
+## 4. yarn monorepo
+
+monorepo 설정
+
+root `package.json` 에서 설정
+`private` 값을 `true`로 설정해야 한다.(내가 기억하기론...)
 
 ```json
 {
   "name": "seodestem",
   "version": "0.0.1",
+  "private": true,
   "packageManager": "yarn@3.0.0",
   "workspaces": ["packages/*"]
 }

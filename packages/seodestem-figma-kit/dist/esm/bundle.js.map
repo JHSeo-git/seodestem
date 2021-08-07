@@ -1,0 +1,1 @@
+{"version":3,"file":"bundle.js","sources":["../../src/index.ts"],"sourcesContent":["const a: number = 1;\n\nfunction exp(x: number): number {\n  return x * x;\n}\n\nexport default exp;\nexport { exp };\n"],"names":[],"mappings":"AAEA,SAAS,GAAG,CAAC,CAAS;IACpB,OAAO,CAAC,GAAG,CAAC,CAAC;AACf;;;;"}

@@ -1538,9 +1538,9 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*, @types/node@npm:^16.4.12":
-  version: 16.4.12
-  resolution: "@types/node@npm:16.4.12"
-  checksum: 1489aeba890629ca2ed9b8f04fb77f185123810afd3d518cf87c2a18a43a43f7d954550ae3572f3dac7e634f7db67e259ceb7ca25cb584ba0bcc023b0bfca2c9
+  version: 16.4.13
+  resolution: "@types/node@npm:16.4.13"
+  checksum: 071e86a1d196cf72928a7109e99769dffed93db481032b9ca2f52e6f3ced432e2a179849c85e587e67409202e1ed37bffd0c7a31d38adf35a385d327dfe8bd72
   languageName: node
   linkType: hard
 
@@ -3706,6 +3706,31 @@ fsevents@~2.3.2:
   checksum: 5eafe6102bea2a7439897c1856362e31cc348ccf96efd455c8b5bc2c61e6f7e7b8250dc26b8828c1d76a56f818a7ee907a36ae9fb37a599d3d24609207001d60
   languageName: node
   linkType: hard
+
+"seodestem-figma-kit@workspace:packages/seodestem-figma-kit":
+  version: 0.0.0-use.local
+  resolution: "seodestem-figma-kit@workspace:packages/seodestem-figma-kit"
+  dependencies:
+    "@babel/cli": ^7.14.8
+    "@babel/core": ^7.15.0
+    "@babel/plugin-transform-runtime": ^7.15.0
+    "@babel/preset-env": ^7.15.0
+    "@babel/preset-typescript": ^7.15.0
+    "@rollup/plugin-babel": ^5.3.0
+    "@rollup/plugin-commonjs": ^20.0.0
+    "@rollup/plugin-node-resolve": ^13.0.4
+    "@rollup/plugin-typescript": ^8.2.5
+    "@types/babel__core": ^7
+    "@types/babel__plugin-transform-runtime": ^7
+    "@types/babel__preset-env": ^7
+    "@types/node": ^16.4.12
+    "@types/rimraf": ^3
+    rimraf: ^3.0.2
+    rollup-plugin-terser: ^7.0.2
+    tslib: ^2.3.0
+    typescript: ^4.3.5
+  languageName: unknown
+  linkType: soft
 
 "seodestem@workspace:.":
   version: 0.0.0-use.local

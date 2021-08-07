@@ -14,3 +14,4 @@ var index = {
 };
 
 export { index as default, logger, sub, sum };
+//# sourceMappingURL=bundle.js.map

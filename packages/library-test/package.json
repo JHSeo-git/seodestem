@@ -3,11 +3,19 @@
   "packageManager": "yarn@3.0.0",
   "main": "./src/index.ts",
   "scripts": {
-    "build": "tsc",
-    "start": "yarn build | yarn node dist/index.js",
+    "clean": "rm -rf ./dist",
+    "build:ts": "tsc",
+    "build:babel": "yarn clean && babel src --extensions '.ts' --out-file 'dist/index.js' --source-maps",
+    "start": "yarn build:babel && yarn node dist/index.js",
     "start:ts": "yarn ts-node"
   },
   "devDependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-typescript": "^7.15.0",
+    "@types/babel__core": "^7",
+    "@types/babel__preset-env": "^7",
     "@types/node": "^16.4.11",
     "ts-node": "^10.1.0",
     "typescript": "^4.3.5"

@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/index.ts"],"names":[],"mappings":";;AAAA;AACA,IAAM,GAAG,GAAG,OAAO,CAAC,iBAAD,CAAnB,C,CAEA;;;AACA,OAAO,CAAC,GAAR,CAAY,GAAG,CAAC,GAAJ,CAAQ,CAAR,EAAW,CAAX,CAAZ","file":"index.js","sourcesContent":["// import esm from '@seodestem/core';\nconst cjs = require('@seodestem/core');\n\n// console.log(esm.sum(2, 1));\nconsole.log(cjs.sub(2, 1));\n"]}

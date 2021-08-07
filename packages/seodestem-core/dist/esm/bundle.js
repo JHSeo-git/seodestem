@@ -7,6 +7,10 @@ function sub(i, j) {
 function logger(text) {
     return text;
 }
+var index = {
+    sum,
+    sub,
+    logger,
+};
 
-export { logger, sub, sum };
-//# sourceMappingURL=bundle.js.map
+export { index as default, logger, sub, sum };

@@ -13,4 +13,10 @@ function logger(text) {
 export { sum };
 export { sub };
 export { logger };
-//# sourceMappingURL=index.js.map
+export default {
+  sum,
+  sub,
+  logger
+};
+
+//# sourceMappingURL=bundle.esm.js.map

@@ -25,15 +25,14 @@ export default args => {
     output: [
       {
         file: pkg.module,
-        format: 'esm',
+        format: 'es',
         sourcemap,
-        exports: 'auto',
       },
       {
         file: pkg.main,
         format: 'cjs',
         sourcemap,
-        exports: 'auto',
+        exports: 'named',
       },
     ],
     external: [/@babel\/runtime/],
@@ -46,7 +45,6 @@ export default args => {
         babelHelpers: 'runtime',
         extensions,
       }),
-      // terser(), // when production mode
     ],
   };
 };

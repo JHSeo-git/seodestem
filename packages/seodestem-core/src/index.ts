@@ -13,3 +13,8 @@ function logger(text: string) {
 export { sum };
 export { sub };
 export { logger };
+export default {
+  sum,
+  sub,
+  logger,
+};

@@ -2955,7 +2955,13 @@ fsevents@~2.3.2:
   version: 0.0.0-use.local
   resolution: "library-test@workspace:packages/library-test"
   dependencies:
+    "@babel/cli": ^7.14.8
+    "@babel/core": ^7.15.0
+    "@babel/preset-env": ^7.15.0
+    "@babel/preset-typescript": ^7.15.0
     "@seodestem/core": "workspace:packages/seodestem-core"
+    "@types/babel__core": ^7
+    "@types/babel__preset-env": ^7
     "@types/node": ^16.4.11
     ts-node: ^10.1.0
     typescript: ^4.3.5
@@ -3704,6 +3710,8 @@ fsevents@~2.3.2:
 "seodestem@workspace:.":
   version: 0.0.0-use.local
   resolution: "seodestem@workspace:."
+  dependencies:
+    typescript: ^4.3.5
   languageName: unknown
   linkType: soft
 

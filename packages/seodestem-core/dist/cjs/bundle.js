@@ -11,8 +11,13 @@ function sub(i, j) {
 function logger(text) {
     return text;
 }
+var index = {
+    sum,
+    sub,
+    logger,
+};
 
+exports['default'] = index;
 exports.logger = logger;
 exports.sub = sub;
 exports.sum = sum;
-//# sourceMappingURL=bundle.js.map

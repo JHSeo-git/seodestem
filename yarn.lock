@@ -1285,6 +1285,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@figma/plugin-typings@npm:^1.28.0":
+  version: 1.28.0
+  resolution: "@figma/plugin-typings@npm:1.28.0"
+  checksum: 71b812e13da1a074447be3dee1bee060c8daedd6642964817aa25868519c8ec337511abde5f99a4008cbbdec8dc6bb6a6beb8951f77063b28a323de9e011940c
+  languageName: node
+  linkType: hard
+
 "@nicolo-ribaudo/chokidar-2@npm:2.1.8-no-fsevents.2":
   version: 2.1.8-no-fsevents.2
   resolution: "@nicolo-ribaudo/chokidar-2@npm:2.1.8-no-fsevents.2"
@@ -1409,6 +1416,33 @@ __metadata:
     "@types/babel__preset-env": ^7
     "@types/node": ^16.4.12
     "@types/rimraf": ^3
+    rimraf: ^3.0.2
+    rollup-plugin-terser: ^7.0.2
+    tslib: ^2.3.0
+    typescript: ^4.3.5
+  languageName: unknown
+  linkType: soft
+
+"@seodestem/figma-kit@workspace:packages/seodestem-figma-kit":
+  version: 0.0.0-use.local
+  resolution: "@seodestem/figma-kit@workspace:packages/seodestem-figma-kit"
+  dependencies:
+    "@babel/cli": ^7.14.8
+    "@babel/core": ^7.15.0
+    "@babel/plugin-transform-runtime": ^7.15.0
+    "@babel/preset-env": ^7.15.0
+    "@babel/preset-typescript": ^7.15.0
+    "@figma/plugin-typings": ^1.28.0
+    "@rollup/plugin-babel": ^5.3.0
+    "@rollup/plugin-commonjs": ^20.0.0
+    "@rollup/plugin-node-resolve": ^13.0.4
+    "@rollup/plugin-typescript": ^8.2.5
+    "@types/babel__core": ^7
+    "@types/babel__plugin-transform-runtime": ^7
+    "@types/babel__preset-env": ^7
+    "@types/node": ^16.4.12
+    "@types/rimraf": ^3
+    axios: ^0.21.1
     rimraf: ^3.0.2
     rollup-plugin-terser: ^7.0.2
     tslib: ^2.3.0
@@ -1722,6 +1756,15 @@ __metadata:
   bin:
     atob: bin/atob.js
   checksum: dfeeeb70090c5ebea7be4b9f787f866686c645d9f39a0d184c817252d0cf08455ed25267d79c03254d3be1f03ac399992a792edcd5ffb9c91e097ab5ef42833a
+  languageName: node
+  linkType: hard
+
+"axios@npm:^0.21.1":
+  version: 0.21.1
+  resolution: "axios@npm:0.21.1"
+  dependencies:
+    follow-redirects: ^1.10.0
+  checksum: c87915fa0b18c15c63350112b6b3563a3e2ae524d7707de0a73d2e065e0d30c5d3da8563037bc29d4cc1b7424b5a350cb7274fa52525c6c04a615fe561c6ab11
   languageName: node
   linkType: hard
 
@@ -2335,6 +2378,16 @@ __metadata:
   dependencies:
     to-regex-range: ^5.0.1
   checksum: cc283f4e65b504259e64fd969bcf4def4eb08d85565e906b7d36516e87819db52029a76b6363d0f02d0d532f0033c9603b9e2d943d56ee3b0d4f7ad3328ff917
+  languageName: node
+  linkType: hard
+
+"follow-redirects@npm:^1.10.0":
+  version: 1.14.1
+  resolution: "follow-redirects@npm:1.14.1"
+  peerDependenciesMeta:
+    debug:
+      optional: true
+  checksum: 7381a55bdc6951c5c1ab73a8da99d9fa4c0496ce72dba92cd2ac2babe0e3ebde9b81c5bca889498ad95984bc773d713284ca2bb17f1b1e1416e5f6531e39a488
   languageName: node
   linkType: hard
 
@@ -3706,31 +3759,6 @@ fsevents@~2.3.2:
   checksum: 5eafe6102bea2a7439897c1856362e31cc348ccf96efd455c8b5bc2c61e6f7e7b8250dc26b8828c1d76a56f818a7ee907a36ae9fb37a599d3d24609207001d60
   languageName: node
   linkType: hard
-
-"seodestem-figma-kit@workspace:packages/seodestem-figma-kit":
-  version: 0.0.0-use.local
-  resolution: "seodestem-figma-kit@workspace:packages/seodestem-figma-kit"
-  dependencies:
-    "@babel/cli": ^7.14.8
-    "@babel/core": ^7.15.0
-    "@babel/plugin-transform-runtime": ^7.15.0
-    "@babel/preset-env": ^7.15.0
-    "@babel/preset-typescript": ^7.15.0
-    "@rollup/plugin-babel": ^5.3.0
-    "@rollup/plugin-commonjs": ^20.0.0
-    "@rollup/plugin-node-resolve": ^13.0.4
-    "@rollup/plugin-typescript": ^8.2.5
-    "@types/babel__core": ^7
-    "@types/babel__plugin-transform-runtime": ^7
-    "@types/babel__preset-env": ^7
-    "@types/node": ^16.4.12
-    "@types/rimraf": ^3
-    rimraf: ^3.0.2
-    rollup-plugin-terser: ^7.0.2
-    tslib: ^2.3.0
-    typescript: ^4.3.5
-  languageName: unknown
-  linkType: soft
 
 "seodestem@workspace:.":
   version: 0.0.0-use.local

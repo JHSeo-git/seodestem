@@ -10,3 +10,6 @@
 /.pnp.*
 
 .DS_Store
+
+.env
+reference

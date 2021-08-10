@@ -1,6 +1,5 @@
 import { ResponseHeaders } from './ResponseHeaders';
-
-type Url = string;
+import { Url } from './Url';
 
 export type FigmaKitResponse<T, S extends number = number> = {
   headers: ResponseHeaders;

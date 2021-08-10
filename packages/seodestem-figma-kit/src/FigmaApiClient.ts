@@ -1,5 +1,8 @@
 import axios, { AxiosInstance } from 'axios';
-import { EndPoints } from './types/Endpoints';
+import { EndPoints } from './types/EndPoints';
+import { FigmaKitRequestInterface } from './types/FigmaKitRequestInterface';
+
+type FigmaAPIRoute = keyof EndPoints;
 
 class FigmaApiClient {
   private client: AxiosInstance;
@@ -9,8 +12,6 @@ class FigmaApiClient {
       baseURL,
     });
   }
-
-  get(endPoinst: EndPoints) {}
 }
 
 export default FigmaApiClient;

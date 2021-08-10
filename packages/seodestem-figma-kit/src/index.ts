@@ -17,7 +17,9 @@ class FigmaKit {
     this.client = new FigmaApiClient(BASE_URL);
   }
 
-  get() {}
+  getFile() {
+    // this.client.request('GET /v1/files/:key')
+  }
 }
 
 export default FigmaKit;

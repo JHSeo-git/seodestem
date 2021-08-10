@@ -91,7 +91,6 @@ type paths = {
         plugin_data?: string;
         branch_data?: string;
       };
-      request: {};
       response: {
         200: {
           content: {
@@ -131,7 +130,6 @@ type paths = {
         key: string;
         title: string;
       };
-      request: {};
       response: {};
     };
   };

@@ -1,6 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
-import { EndPoints } from './types/EndPoints';
-import { FigmaKitRequestInterface } from './types/FigmaKitRequestInterface';
+import { EndPoints } from './types/v2';
 
 type FigmaAPIRoute = keyof EndPoints;
 

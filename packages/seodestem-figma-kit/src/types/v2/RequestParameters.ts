@@ -1,6 +1,6 @@
 import { RequestOptions } from 'https';
 import { RequestHeaders } from './RequestHeaders';
-import { Url } from './Url';
+import { Url } from '../Url';
 
 export type RequestParameters = {
   baseUrl?: Url;

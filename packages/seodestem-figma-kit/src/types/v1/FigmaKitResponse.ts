@@ -1,4 +1,4 @@
-import { Url } from '../Url';
+import { Url } from './Url';
 
 type ResponseHeaders = {
   'cache-control'?: string;
@@ -16,7 +16,7 @@ type ResponseHeaders = {
   [header: string]: string | number | undefined;
 };
 
-export type Response<T, S extends number = number> = {
+export type FigmaKitResponse<T, S extends number = number> = {
   headers: ResponseHeaders;
   status: S;
   url: Url;

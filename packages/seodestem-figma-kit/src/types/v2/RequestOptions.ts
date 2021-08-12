@@ -1,6 +1,6 @@
 import { RequestHeaders } from './RequestHeaders';
 import { RequestMethod } from './RequestMethod';
-import { Url } from '../Url';
+import { Url } from './Url';
 
 export type RequestOptions = {
   method: RequestMethod;

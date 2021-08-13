@@ -37,6 +37,7 @@
     "@types/babel__preset-env": "^7",
     "@types/jest": "^27.0.0",
     "@types/node": "^16.4.12",
+    "@types/node-fetch": "^2",
     "@types/rimraf": "^3",
     "jest": "^27.0.6",
     "rimraf": "^3.0.2",
@@ -45,6 +46,7 @@
     "typescript": "^4.3.5"
   },
   "dependencies": {
-    "axios": "^0.21.1"
+    "axios": "^0.21.1",
+    "node-fetch": "^2.6.1"
   }
 }

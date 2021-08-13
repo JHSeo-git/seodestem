@@ -1,28 +1,21 @@
 import '@figma/plugin-typings';
+import { request } from './request';
 
-import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
-import { EndPoints, RequestParameters } from './types';
+import { FigmaKitRequest, RequestParameters } from './types';
 
 const BASE_URL = 'https://api.figma.com';
 
-type FigmaAPIOptions = AxiosRequestConfig;
-
 export class FigmaKit {
-  private client: AxiosInstance;
+  private token: string;
+  private defaultOptions: RequestParameters;
+  request: FigmaKitRequest;
 
-  constructor(token: string, options?: FigmaAPIOptions) {
-    const clientOptions: FigmaAPIOptions = {
+  constructor(token: string, options?: RequestParameters) {
+    this.token = token;
+    this.request = request;
+    this.defaultOptions = {
       baseURL: options?.baseURL ?? BASE_URL,
       ...options,
     };
-
-    this.client = axios.create(clientOptions);
   }
-
-  request<R extends keyof EndPoints>(
-    route: keyof EndPoints | R,
-    options?: R extends keyof EndPoints
-      ? EndPoints[R]['parameters'] & RequestParameters
-      : RequestParameters
-  ) {}
 }

@@ -2,6 +2,9 @@
 curl -H 'X-FIGMA-TOKEN: <your-figma-token>' 'https://api.figma.com/v1/files/<your-figma-filekey>'
 ```
 
+filekey is a part of link.
+`https://www.figma.com/file/{filekey}/<your-project-name>`
+
 ```json
 {
   "document": {

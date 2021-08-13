@@ -1,17 +1,34 @@
-// import { FigmaKitRequest } from '../types';
+import fetch, { Response, RequestInit } from 'node-fetch';
+import { FigmaKitRequest } from '../types';
+import { routeParse } from '../util/route-parse';
 
-// const parseUrl = (route: string) => {
-//   return route.split(' ').length > 0 ? route.split(' ')[1] : null;
-// };
+function getBufferResponse(response: Response) {
+  return response.arrayBuffer();
+}
 
-// export function request(): FigmaKitRequest {
-//   const api: FigmaKitRequest = (route, options) => {
-//     const url = parseUrl(route);
+async function getResponseData(response: Response) {
+  const contentType = response.headers.get('content-type');
+  if (/application\/json/.test(contentType!)) {
+    return response.json();
+  }
 
-//   };
-//   return Object.assign({
-//     api,
-//   }) as FigmaKitRequest;
-// }
+  if (!contentType || /^text\/|charset=utf-8$/.test(contentType)) {
+    return response.text();
+  }
 
-export default function request() {}
+  return getBufferResponse(response);
+}
+
+export const request: FigmaKitRequest = (route, options) => {
+  const parsedRoute = routeParse(route);
+  const merged = {
+    ...options,
+    ...parsedRoute,
+  };
+
+  const fetchOptions: RequestInit = {
+    method: merged.method,
+  };
+
+  return fetch('', {}).then(data => getResponseData(data));
+};

@@ -53,3 +53,5 @@ root package.json에 typescript를 추가시켜줘야 vscode에서 그 typescrip
 
 yarn berry 설정 시에 프로젝트 typescript 버전으로 선택하여 진행하기 때문에 이런 설정을 해주어야 한다.
 (그 외 eslint, prettier도 프로젝트 버전으로 사용하고 싶다면 root package.json에서 설정해주어야 한다.)
+
+- 추가로 jest인 경우도 root package.json에 @types/jest를 지정해주지 않으면 모노레포 프로젝트에서 타입이 지정되지 않는다.

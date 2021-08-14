@@ -1,34 +1,33 @@
-import fetch, { Response, RequestInit } from 'node-fetch';
-import { FigmaKitRequest } from '../types';
+import fetchWrapper from './fetchWrapper';
+import { FigmaKitRequest, FigmaKitResponse, RequestParameters } from '../types';
 import { routeParse } from '../util/route-parse';
-
-function getBufferResponse(response: Response) {
-  return response.arrayBuffer();
-}
-
-async function getResponseData(response: Response) {
-  const contentType = response.headers.get('content-type');
-  if (/application\/json/.test(contentType!)) {
-    return response.json();
-  }
-
-  if (!contentType || /^text\/|charset=utf-8$/.test(contentType)) {
-    return response.text();
-  }
-
-  return getBufferResponse(response);
-}
+import { extractUrlVariableNames } from '../util/extract-uri-variable-names';
+import { RequestMethod } from '../types/v1/RequestMethod';
+import { omit } from '../util/omit';
 
 export const request: FigmaKitRequest = (route, options) => {
   const parsedRoute = routeParse(route);
-  const merged = {
-    ...options,
-    ...parsedRoute,
-  };
+  const method = parsedRoute.method.toUpperCase() as RequestMethod;
 
-  const fetchOptions: RequestInit = {
-    method: merged.method,
-  };
+  // change url variable :key -> {key}
+  const url = (parsedRoute.url || '/').replace(/:([a-z]\w+)/g, '{$1}');
+  const headers = Object.assign({}, options?.headers);
+  let body: string | object | undefined;
 
-  return fetch('', {}).then(data => getResponseData(data));
+  const urlVariableNames = extractUrlVariableNames(url);
+  let parameters = omit(options ?? {}, [
+    'method',
+    'baseUrl',
+    'url',
+    'headers',
+    'request',
+  ]);
+
+  return fetchWrapper({
+    url,
+    headers,
+    method,
+    body,
+    options,
+  }) as any;
 };

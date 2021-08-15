@@ -1,3 +1,5 @@
+import * as ModelType from './models';
+
 type components = {
   'success-no-content': {
     'application/json': {
@@ -14,79 +16,6 @@ type components = {
     };
   };
 };
-
-type Comment = {
-  id: string;
-  client_meta: Vector | FrameOffset;
-  message: string;
-  file_key: string;
-  parent_id: string;
-  user: User;
-  created_at: string;
-  resolved_at: string;
-  order_id: number;
-};
-
-type FrameOffset = {
-  node_id: string;
-  node_offset: Vector;
-};
-
-type User = {
-  id: string;
-  handle: string;
-  img_url: string;
-  email: string;
-};
-
-type Version = {
-  id: string;
-  created_at: string;
-  label: string | null;
-  description: string | null;
-  user: User;
-};
-
-type Project = {
-  id: number;
-  name: string;
-};
-
-type BaseComponent = {
-  key: string;
-  file_key: string;
-  node_id: string;
-  thumbnail_url: string;
-  name: string;
-  description: string;
-  created_at: string;
-  update_at: string;
-  user: User;
-};
-
-type Component = {
-  containing_frame: FrameInfo;
-  containing_page: PageInfo;
-} & BaseComponent;
-
-type ComponentSet = Component;
-
-type FrameInfo =
-  | {
-      node_id: string;
-      name: string;
-      background_color: string;
-      page_id: string;
-      page_name: string;
-    }
-  | {};
-
-type PageInfo = {};
-
-type StyleComponent = {
-  style_type: StyleType;
-  sort_position: string;
-} & BaseComponent;
 
 export type Paths = {
   '/v1/files/:key': {
@@ -247,7 +176,7 @@ export type Paths = {
         200: {
           content: {
             'application/json': {
-              comments: Comment[];
+              comments: ModelType.Comment[];
             };
           };
         };
@@ -269,14 +198,14 @@ export type Paths = {
           'application/json': {
             message: string;
             comment_id?: string;
-            client_meta?: Vector | FrameOffset;
+            client_meta?: Vector | ModelType.FrameOffset;
           };
         };
       };
       responses: {
         200: {
           content: {
-            'application/json': Comment;
+            'application/json': ModelType.Comment;
           };
         };
         404: {
@@ -308,7 +237,7 @@ export type Paths = {
       responses: {
         200: {
           content: {
-            'application/json': User;
+            'application/json': ModelType.User;
           };
         };
         403: {
@@ -328,7 +257,7 @@ export type Paths = {
         200: {
           content: {
             'application/json': {
-              versions: Version[];
+              versions: ModelType.Version[];
               pagination?: {
                 prev_page?: string;
                 next_page?: string;
@@ -354,7 +283,7 @@ export type Paths = {
           content: {
             'application/json': {
               name: string;
-              projects: Project[];
+              projects: ModelType.Project[];
             };
           };
         };
@@ -421,7 +350,7 @@ export type Paths = {
           content: {
             'application/json': {
               meta: {
-                components: Component[];
+                components: ModelType.Component[];
                 cursor: {
                   before: number;
                   after: number;
@@ -454,7 +383,7 @@ export type Paths = {
           content: {
             'application/json': {
               meta: {
-                components: Component[];
+                components: ModelType.Component[];
               };
             };
           };
@@ -482,7 +411,7 @@ export type Paths = {
         200: {
           content: {
             'application/json': {
-              meta: Component;
+              meta: ModelType.Component;
             };
           };
         };
@@ -515,7 +444,7 @@ export type Paths = {
           content: {
             'application/json': {
               meta: {
-                component_sets: ComponentSet[];
+                component_sets: ModelType.ComponentSet[];
                 cursor: {
                   before: number;
                   after: number;
@@ -548,7 +477,7 @@ export type Paths = {
           content: {
             'application/json': {
               meta: {
-                component_sets: ComponentSet[];
+                component_sets: ModelType.ComponentSet[];
               };
             };
           };
@@ -576,7 +505,7 @@ export type Paths = {
         200: {
           content: {
             'application/json': {
-              meta: ComponentSet;
+              meta: ModelType.ComponentSet;
             };
           };
         };
@@ -609,7 +538,7 @@ export type Paths = {
           content: {
             'application/json': {
               meta: {
-                styles: StyleComponent[];
+                styles: ModelType.StyleComponent[];
                 cursor: {
                   before: number;
                   after: number;
@@ -642,7 +571,7 @@ export type Paths = {
           content: {
             'application/json': {
               meta: {
-                styles: StyleComponent[];
+                styles: ModelType.StyleComponent[];
               };
             };
           };
@@ -670,7 +599,7 @@ export type Paths = {
         200: {
           content: {
             'application/json': {
-              meta: StyleComponent;
+              meta: ModelType.StyleComponent;
             };
           };
         };

@@ -1,5 +1,5 @@
 import { Paths } from './path-routes';
-import { ExtractRequest, ExtractResponses, MethodsMap, RequestHeaders } from './types';
+import { ExtractRequest, ExtractResponses, MethodsMap, RequestHeaders } from './common';
 
 export type Operation<Url extends keyof Paths, Method extends keyof Paths[Url]> = {
   parameters: ExtractRequest<Paths[Url][Method]>;

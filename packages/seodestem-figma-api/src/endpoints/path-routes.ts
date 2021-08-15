@@ -83,7 +83,7 @@ type FrameInfo =
 
 type PageInfo = {};
 
-type StyleInfo = {
+type StyleComponent = {
   style_type: StyleType;
   sort_position: string;
 } & BaseComponent;
@@ -140,10 +140,9 @@ export type Paths = {
       parameters: {
         path: {
           key: string;
-          file_key: string;
-          ids: string;
         };
         query: {
+          ids: string;
           version?: string;
           depth?: number;
           geometry?: string;
@@ -184,9 +183,9 @@ export type Paths = {
       parameters: {
         path: {
           key: string;
-          ids: string;
         };
         query: {
+          ids: string;
           scale?: number;
           format?: string;
           svg_include_id?: boolean;
@@ -257,10 +256,12 @@ export type Paths = {
         };
       };
     };
+  };
+  '/v1/files/:file_key/comments': {
     post: {
       parameters: {
         path: {
-          key: string;
+          file_key: string;
         };
       };
       requestBody: {
@@ -284,11 +285,11 @@ export type Paths = {
       };
     };
   };
-  '/v1/files/:key/comments/:comment_id': {
+  '/v1/files/:file_key/comments/:comment_id': {
     delete: {
       parameters: {
         path: {
-          key: string;
+          file_key: string;
           comment_id: string;
         };
       };
@@ -441,11 +442,11 @@ export type Paths = {
       };
     };
   };
-  '/v1/files/:key/components': {
+  '/v1/files/:file_key/components': {
     get: {
       parameters: {
         path: {
-          key: string;
+          file_key: string;
         };
       };
       responses: {
@@ -535,6 +536,35 @@ export type Paths = {
       };
     };
   };
+  '/v1/files/:file_key/component_sets': {
+    get: {
+      parameters: {
+        path: {
+          file_key: string;
+        };
+      };
+      responses: {
+        200: {
+          content: {
+            'application/json': {
+              meta: {
+                component_sets: ComponentSet[];
+              };
+            };
+          };
+        };
+        400: {
+          content: components['basic-error'];
+        };
+        403: {
+          content: components['basic-error'];
+        };
+        404: {
+          content: components['basic-error'];
+        };
+      };
+    };
+  };
   '/v1/component_sets/:key': {
     get: {
       parameters: {
@@ -579,7 +609,7 @@ export type Paths = {
           content: {
             'application/json': {
               meta: {
-                styles: StyleInfo[];
+                styles: StyleComponent[];
                 cursor: {
                   before: number;
                   after: number;
@@ -600,11 +630,11 @@ export type Paths = {
       };
     };
   };
-  '/v1/files/:key/styles': {
+  '/v1/files/:file_key/styles': {
     get: {
       parameters: {
         path: {
-          key: string;
+          file_key: string;
         };
       };
       responses: {
@@ -612,7 +642,7 @@ export type Paths = {
           content: {
             'application/json': {
               meta: {
-                styles: StyleInfo[];
+                styles: StyleComponent[];
               };
             };
           };
@@ -640,7 +670,7 @@ export type Paths = {
         200: {
           content: {
             'application/json': {
-              meta: StyleInfo;
+              meta: StyleComponent;
             };
           };
         };

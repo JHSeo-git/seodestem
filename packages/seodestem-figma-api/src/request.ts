@@ -3,7 +3,6 @@ import {
   Endpoints,
   FigmaAPIResponse,
   RequestMethod,
-  RequestConfig,
   RequestHeaders,
 } from './types';
 import { addQueryParameters } from './util/add-query-parameters';
@@ -20,7 +19,7 @@ type RequestParameters = {
   headers?: RequestHeaders;
 };
 
-type RequestInterface<R extends string = string> = (
+export type RequestInterface<R extends string = string> = (
   route: keyof Endpoints | R,
   options?: R extends keyof Endpoints
     ? Endpoints[R]['parameters'] & RequestParameters

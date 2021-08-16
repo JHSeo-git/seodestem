@@ -1670,6 +1670,7 @@ __metadata:
     "@rollup/plugin-commonjs": ^20.0.0
     "@rollup/plugin-node-resolve": ^13.0.4
     "@rollup/plugin-typescript": ^8.2.5
+    "@seodestem/figma-api": "workspace:packages/seodestem-figma-api"
     "@types/babel__core": ^7
     "@types/babel__plugin-transform-runtime": ^7
     "@types/babel__preset-env": ^7

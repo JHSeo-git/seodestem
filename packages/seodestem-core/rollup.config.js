@@ -1,7 +1,7 @@
 import pkg from './package.json';
 import { babel } from '@rollup/plugin-babel';
 import typescript from '@rollup/plugin-typescript';
-import resolve from '@rollup/plugin-node-resolve';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
 
@@ -39,7 +39,7 @@ export default args => {
     plugins: [
       // ...plugins,
       typescript(),
-      resolve(),
+      nodeResolve(),
       commonjs(),
       babel({
         babelHelpers: 'runtime',

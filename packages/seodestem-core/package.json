@@ -43,5 +43,8 @@
     "rollup-plugin-terser": "^7.0.2",
     "tslib": "^2.3.0",
     "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "@seodestem/figma-api": "workspace:packages/seodestem-figma-api"
   }
 }

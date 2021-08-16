@@ -3,28 +3,19 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.sum = sum;
-exports.sub = sub;
-exports.logger = logger;
-exports["default"] = void 0;
+exports.Core = void 0;
 
-function sum(i, j) {
-  return i + j;
-}
+var _figmaApi = require("@seodestem/figma-api");
 
-function sub(i, j) {
-  return i - j;
-}
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function logger(text) {
-  return text;
-}
+var Core = function Core(baseUrl) {
+  _classCallCheck(this, Core);
 
-var _default = {
-  sum: sum,
-  sub: sub,
-  logger: logger
+  this.baseUrl = baseUrl !== null && baseUrl !== void 0 ? baseUrl : 'https://api.figma.com';
+  this.request = _figmaApi.request;
 };
-exports["default"] = _default;
+
+exports.Core = Core;
 
 //# sourceMappingURL=bundle.cjs.js.map

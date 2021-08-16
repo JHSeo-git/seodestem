@@ -1,22 +1,10 @@
-function sum(i, j) {
-  return i + j;
-}
+import { request } from '@seodestem/figma-api';
+export class Core {
+  constructor(baseUrl) {
+    this.baseUrl = baseUrl !== null && baseUrl !== void 0 ? baseUrl : 'https://api.figma.com';
+    this.request = request;
+  }
 
-function sub(i, j) {
-  return i - j;
 }
-
-function logger(text) {
-  return text;
-}
-
-export { sum };
-export { sub };
-export { logger };
-export default {
-  sum,
-  sub,
-  logger
-};
 
 //# sourceMappingURL=bundle.esm.js.map

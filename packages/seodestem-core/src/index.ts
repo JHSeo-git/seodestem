@@ -1,20 +1,14 @@
-function sum(i: number, j: number): number {
-  return i + j;
-}
+import { request } from '@seodestem/figma-api';
 
-function sub(i: number, j: number): number {
-  return i - j;
-}
+export class Core {
+  baseUrl: string;
+  request: typeof request;
+  constructor(baseUrl?: string) {
+    this.baseUrl = baseUrl ?? 'https://api.figma.com';
+    this.request = request;
+  }
 
-function logger(text: string) {
-  return text;
+  get() {
+    request('');
+  }
 }
-
-export { sum };
-export { sub };
-export { logger };
-export default {
-  sum,
-  sub,
-  logger,
-};

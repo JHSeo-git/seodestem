@@ -23,7 +23,7 @@ declare type ResponseHeaders = {
     vary?: string;
     [header: string]: string | number | undefined;
 };
-declare type APIResponse<T, S extends number = number> = {
+export declare type FigmaAPIResponse<T, S extends number = number> = {
     headers: ResponseHeaders;
     status: S;
     url: string;
@@ -34,7 +34,7 @@ declare type ExtractContentKey<T> = 'content' extends keyof T ? {
     [K in keyof T['content']]: T['content'][K];
 }[keyof T['content']] : T;
 declare type SuccessResponseDataType<Responses> = {
-    [K in SuccessStatuses & keyof Responses]: ExtractContentKey<Responses[K]> extends never ? never : APIResponse<ExtractContentKey<Responses[K]>, K>;
+    [K in SuccessStatuses & keyof Responses]: ExtractContentKey<Responses[K]> extends never ? never : FigmaAPIResponse<ExtractContentKey<Responses[K]>, K>;
 };
 /**
  * type Extract Request

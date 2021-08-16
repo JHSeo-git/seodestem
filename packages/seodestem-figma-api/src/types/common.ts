@@ -42,7 +42,7 @@ type ResponseHeaders = {
   [header: string]: string | number | undefined;
 };
 
-type APIResponse<T, S extends number = number> = {
+export type FigmaAPIResponse<T, S extends number = number> = {
   headers: ResponseHeaders;
   status: S;
   url: string;
@@ -62,7 +62,7 @@ type SuccessResponseDataType<Responses> = {
     Responses[K]
   > extends never
     ? never
-    : APIResponse<ExtractContentKey<Responses[K]>, K>;
+    : FigmaAPIResponse<ExtractContentKey<Responses[K]>, K>;
 };
 
 /**

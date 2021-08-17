@@ -30,12 +30,14 @@ export declare type FigmaAPIResponse<T, S extends number = number> = {
     data: T;
 };
 declare type SuccessStatuses = 200 | 201 | 202 | 204;
-declare type ExtractContentKey<T> = 'content' extends keyof T ? {
-    [K in keyof T['content']]: T['content'][K];
-}[keyof T['content']] : T;
+declare type KnownJsonResponseTypes = 'application/json' | 'application/scim+json' | 'text/html';
+declare type DataType<T> = {
+    [K in KnownJsonResponseTypes & keyof T]: T[K];
+}[KnownJsonResponseTypes & keyof T];
+declare type ExtractContentKey<T> = 'content' extends keyof T ? DataType<T['content']> : DataType<T>;
 declare type SuccessResponseDataType<Responses> = {
     [K in SuccessStatuses & keyof Responses]: ExtractContentKey<Responses[K]> extends never ? never : FigmaAPIResponse<ExtractContentKey<Responses[K]>, K>;
-};
+}[SuccessStatuses & keyof Responses];
 /**
  * type Extract Request
  */

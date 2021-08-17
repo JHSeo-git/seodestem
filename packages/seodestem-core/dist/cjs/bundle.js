@@ -7,6 +7,7 @@ var http = require('http');
 var Url = require('url');
 var https = require('https');
 var zlib = require('zlib');
+require('@figma/plugin-typings');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -2034,7 +2035,7 @@ function expand(template, context) {
  * @param options request parameters + body + options
  * @returns
  */
-const request = (route, options) => {
+const endpoint = (route, options) => {
     // merge & parse options
     const requestOptions = parseRouteAndOptions(route, options);
     // replace url variables(ie. :key -> {key})
@@ -2054,7 +2055,9 @@ const request = (route, options) => {
     // replace path variable names to values
     url = parseUrl(url).expand(parameters);
     if (!/^http/.test(url)) {
-        url = (requestOptions?.baseUrl || 'https://api.figma.com') + url;
+        // TODO: default set baseUrl
+        // url = (requestOptions?.baseUrl || 'https://api.figma.com') + url;
+        url = 'https://api.figma.com' + url;
     }
     const omiitedParameters = Object.keys(requestOptions || {})
         .filter(option => urlVariableNames.includes(option))
@@ -2100,7 +2103,13 @@ function parseRouteAndOptions(route, options) {
     return mergedOptions;
 }
 
-class Core {
+const request = (route, options) => {
+    const requestWrapper = endpoint(route, options);
+    // RequestInterface prototype
+    return Object.assign(requestWrapper);
+};
+
+class SeoDestemKit {
     baseUrl;
     request;
     constructor(baseUrl) {
@@ -2109,5 +2118,5 @@ class Core {
     }
 }
 
-exports.Core = Core;
+exports.SeoDestemKit = SeoDestemKit;
 //# sourceMappingURL=bundle.js.map

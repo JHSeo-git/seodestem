@@ -1,14 +1,16 @@
-import { request } from '@seodestem/figma-api';
+import { request, RequestHeaders } from '@seodestem/figma-api';
 
-export class Core {
-  baseUrl: string;
+export class SeoDestemKit {
+  token: string;
   request: typeof request;
-  constructor(baseUrl?: string) {
-    this.baseUrl = baseUrl ?? 'https://api.figma.com';
+  constructor(token: string) {
+    const staticHeaders: RequestHeaders = {
+      'X-FIGMA-TOKEN': token,
+    };
+    this.token = token;
     this.request = request;
   }
-
-  get() {
-    request('');
-  }
 }
+
+const kit = new SeoDestemKit('tt');
+kit.request('GET /v1/files/:key', { key: 's' });

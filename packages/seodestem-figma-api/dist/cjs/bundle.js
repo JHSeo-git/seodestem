@@ -7,6 +7,7 @@ var http = require('http');
 var Url = require('url');
 var https = require('https');
 var zlib = require('zlib');
+require('@figma/plugin-typings');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -2104,9 +2105,8 @@ function parseRouteAndOptions(route, options) {
 
 const request = (route, options) => {
     const requestWrapper = endpoint(route, options);
-    return Object.create({
-        requestWrapper,
-    });
+    // RequestInterface prototype
+    return Object.assign(requestWrapper);
 };
 
 exports.request = request;

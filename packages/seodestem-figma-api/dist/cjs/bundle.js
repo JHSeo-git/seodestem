@@ -2034,7 +2034,7 @@ function expand(template, context) {
  * @param options request parameters + body + options
  * @returns
  */
-const request = (route, options) => {
+const endpoint = (route, options) => {
     // merge & parse options
     const requestOptions = parseRouteAndOptions(route, options);
     // replace url variables(ie. :key -> {key})
@@ -2054,7 +2054,9 @@ const request = (route, options) => {
     // replace path variable names to values
     url = parseUrl(url).expand(parameters);
     if (!/^http/.test(url)) {
-        url = (requestOptions?.baseUrl || 'https://api.figma.com') + url;
+        // TODO: default set baseUrl
+        // url = (requestOptions?.baseUrl || 'https://api.figma.com') + url;
+        url = 'https://api.figma.com' + url;
     }
     const omiitedParameters = Object.keys(requestOptions || {})
         .filter(option => urlVariableNames.includes(option))
@@ -2099,6 +2101,13 @@ function parseRouteAndOptions(route, options) {
     removeUndefinedProperties(mergedOptions.headers);
     return mergedOptions;
 }
+
+const request = (route, options) => {
+    const requestWrapper = endpoint(route, options);
+    return Object.create({
+        requestWrapper,
+    });
+};
 
 exports.request = request;
 //# sourceMappingURL=bundle.js.map

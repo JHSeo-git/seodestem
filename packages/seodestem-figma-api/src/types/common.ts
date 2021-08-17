@@ -51,11 +51,16 @@ export type FigmaAPIResponse<T, S extends number = number> = {
 
 type SuccessStatuses = 200 | 201 | 202 | 204;
 
+type KnownJsonResponseTypes =
+  | 'application/json'
+  | 'application/scim+json'
+  | 'text/html';
+type DataType<T> = {
+  [K in KnownJsonResponseTypes & keyof T]: T[K];
+}[KnownJsonResponseTypes & keyof T];
 type ExtractContentKey<T> = 'content' extends keyof T
-  ? {
-      [K in keyof T['content']]: T['content'][K];
-    }[keyof T['content']]
-  : T;
+  ? DataType<T['content']>
+  : DataType<T>;
 
 type SuccessResponseDataType<Responses> = {
   [K in SuccessStatuses & keyof Responses]: ExtractContentKey<
@@ -63,7 +68,7 @@ type SuccessResponseDataType<Responses> = {
   > extends never
     ? never
     : FigmaAPIResponse<ExtractContentKey<Responses[K]>, K>;
-};
+}[SuccessStatuses & keyof Responses];
 
 /**
  * type Extract Request

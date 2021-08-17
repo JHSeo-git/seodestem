@@ -13,14 +13,11 @@ import { removeUndefinedProperties } from './util/remove-undefined-properties';
 import { parseUrl } from './util/url-template';
 
 type RequestParameters = {
-  url: string;
-  method: string;
-  baseUrl?: string;
   headers?: RequestHeaders;
 };
 
-export type RequestInterface<R extends string = string> = (
-  route: keyof Endpoints | R,
+type EndpointInterface<R extends string = string> = (
+  route: R | keyof Endpoints,
   options?: R extends keyof Endpoints
     ? Endpoints[R]['parameters'] & RequestParameters
     : RequestParameters
@@ -29,13 +26,28 @@ export type RequestInterface<R extends string = string> = (
   : Promise<FigmaAPIResponse<any>>;
 
 /**
+ * Interface Object Type
+ */
+export type RequestInterface = {
+  // request binded type
+  <R extends string>(
+    route: R | keyof Endpoints,
+    options?: R extends keyof Endpoints
+      ? Endpoints[R]['parameters'] & RequestParameters
+      : RequestParameters
+  ): R extends keyof Endpoints
+    ? Promise<Endpoints[R]['responses']>
+    : Promise<FigmaAPIResponse<any>>;
+};
+
+/**
  * figma api wrapper request function
  *
  * @param route figma api route
  * @param options request parameters + body + options
  * @returns
  */
-export const request: RequestInterface = (route, options) => {
+export const endpoint: EndpointInterface = (route, options) => {
   // merge & parse options
   const requestOptions = parseRouteAndOptions(route, options);
 
@@ -58,7 +70,9 @@ export const request: RequestInterface = (route, options) => {
   url = parseUrl(url).expand(parameters);
 
   if (!/^http/.test(url)) {
-    url = (requestOptions?.baseUrl || 'https://api.figma.com') + url;
+    // TODO: default set baseUrl
+    // url = (requestOptions?.baseUrl || 'https://api.figma.com') + url;
+    url = 'https://api.figma.com' + url;
   }
 
   const omiitedParameters = Object.keys(requestOptions || {})

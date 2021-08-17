@@ -1,1 +1,2 @@
-export { request } from './request';
+import { RequestInterface } from './request';
+export declare const request: RequestInterface;

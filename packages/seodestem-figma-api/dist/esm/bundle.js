@@ -3,7 +3,7 @@ import http from 'http';
 import Url from 'url';
 import https from 'https';
 import zlib from 'zlib';
-export * from '@figma/plugin-typings';
+import '@figma/plugin-typings';
 
 // Based on https://github.com/tmpvar/jsdom/blob/aa85b2abf07766ff7bf5c1f6daafb3726f2f2db5/lib/jsdom/living/blob.js
 

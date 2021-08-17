@@ -1,4 +1,3 @@
-import '@figma/plugin-typings';
 import * as ModelType from './models';
 
 type components = {

@@ -7,7 +7,7 @@ var http = require('http');
 var Url = require('url');
 var https = require('https');
 var zlib = require('zlib');
-var pluginTypings = require('@figma/plugin-typings');
+require('@figma/plugin-typings');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -2110,12 +2110,4 @@ const request = (route, options) => {
 };
 
 exports.request = request;
-Object.keys(pluginTypings).forEach(function (k) {
-	if (k !== 'default' && !exports.hasOwnProperty(k)) Object.defineProperty(exports, k, {
-		enumerable: true,
-		get: function () {
-			return pluginTypings[k];
-		}
-	});
-});
 //# sourceMappingURL=bundle.js.map

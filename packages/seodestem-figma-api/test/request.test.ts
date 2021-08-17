@@ -12,7 +12,8 @@ describe('request()', () => {
         'X-FIGMA-TOKEN': token,
       },
     }).then(response => {
-      expect(response.data).toEqual({});
+      console.log(response);
+      expect(response.data);
     });
   });
 });

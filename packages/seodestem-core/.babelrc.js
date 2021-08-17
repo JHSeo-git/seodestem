@@ -1,6 +1,6 @@
 const sharedPresets = ['@babel/typescript'];
 const shared = {
-  ignore: ['**/*.d.ts'],
+  // ignore: ['**/*.d.ts'],
   presets: sharedPresets,
 };
 
@@ -12,8 +12,6 @@ module.exports = {
         [
           '@babel/preset-env',
           {
-            modules: false,
-            // targets: '> 0.25%, not dead',
             targets: {
               esmodules: true,
             },

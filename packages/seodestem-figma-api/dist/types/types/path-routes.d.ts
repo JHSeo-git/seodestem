@@ -1,4 +1,3 @@
-export * from '@figma/plugin-typings';
 import * as ModelType from './models';
 declare type components = {
     'success-no-content': {
@@ -615,3 +614,4 @@ export declare type Paths = {
         };
     };
 };
+export {};

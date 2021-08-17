@@ -1,1 +1,0 @@
-export { EndPoints } from './EndPoints';

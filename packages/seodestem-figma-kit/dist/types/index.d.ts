@@ -1,1 +1,0 @@
-export { FigmaKit } from './FigmaKit';

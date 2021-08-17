@@ -1323,10 +1323,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@figma/plugin-typings@npm:^1.28.0":
-  version: 1.28.0
-  resolution: "@figma/plugin-typings@npm:1.28.0"
-  checksum: 71b812e13da1a074447be3dee1bee060c8daedd6642964817aa25868519c8ec337511abde5f99a4008cbbdec8dc6bb6a6beb8951f77063b28a323de9e011940c
+"@figma/plugin-typings@npm:^1.29.0":
+  version: 1.29.0
+  resolution: "@figma/plugin-typings@npm:1.29.0"
+  checksum: 07b0ca108dc10a95a65ba1e7d333395bd38aa5ecfcd27c19a258a96c75a82205b0d39d4e3aad0f642f805c099f4355adb79bb73829d6373f510dccf1ca6c1189
   languageName: node
   linkType: hard
 
@@ -1692,7 +1692,7 @@ __metadata:
     "@babel/plugin-transform-runtime": ^7.15.0
     "@babel/preset-env": ^7.15.0
     "@babel/preset-typescript": ^7.15.0
-    "@figma/plugin-typings": ^1.28.0
+    "@figma/plugin-typings": ^1.29.0
     "@rollup/plugin-babel": ^5.3.0
     "@rollup/plugin-commonjs": ^20.0.0
     "@rollup/plugin-node-resolve": ^13.0.4
@@ -1706,38 +1706,6 @@ __metadata:
     "@types/rimraf": ^3
     axios: ^0.21.1
     dotenv: ^10.0.0
-    is-plain-object: ^5.0.0
-    jest: ^27.0.6
-    node-fetch: ^2.6.1
-    rimraf: ^3.0.2
-    rollup-plugin-terser: ^7.0.2
-    tslib: ^2.3.0
-    typescript: ^4.3.5
-  languageName: unknown
-  linkType: soft
-
-"@seodestem/figma-kit@workspace:packages/seodestem-figma-kit":
-  version: 0.0.0-use.local
-  resolution: "@seodestem/figma-kit@workspace:packages/seodestem-figma-kit"
-  dependencies:
-    "@babel/cli": ^7.14.8
-    "@babel/core": ^7.15.0
-    "@babel/plugin-transform-runtime": ^7.15.0
-    "@babel/preset-env": ^7.15.0
-    "@babel/preset-typescript": ^7.15.0
-    "@figma/plugin-typings": ^1.28.0
-    "@rollup/plugin-babel": ^5.3.0
-    "@rollup/plugin-commonjs": ^20.0.0
-    "@rollup/plugin-node-resolve": ^13.0.4
-    "@rollup/plugin-typescript": ^8.2.5
-    "@types/babel__core": ^7
-    "@types/babel__plugin-transform-runtime": ^7
-    "@types/babel__preset-env": ^7
-    "@types/jest": ^27.0.1
-    "@types/node": ^16.4.12
-    "@types/node-fetch": ^2
-    "@types/rimraf": ^3
-    axios: ^0.21.1
     is-plain-object: ^5.0.0
     jest: ^27.0.6
     node-fetch: ^2.6.1

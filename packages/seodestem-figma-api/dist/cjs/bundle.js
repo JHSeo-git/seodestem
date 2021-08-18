@@ -7,7 +7,6 @@ var http = require('http');
 var Url = require('url');
 var https = require('https');
 var zlib = require('zlib');
-require('@figma/plugin-typings');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -2094,6 +2093,16 @@ const endpoint = (route, options) => {
         parameters,
     });
 };
+function requestWithDefaults(newDefaults) {
+    const newEndpoint = (route, options) => {
+        const optionsWithDefaults = {
+            ...newDefaults,
+            ...options,
+        };
+        return endpoint(route, optionsWithDefaults);
+    };
+    return Object.assign(newEndpoint);
+}
 function parseRouteAndOptions(route, options) {
     const [method, url] = route.split(' ');
     const mergedOptions = Object.assign(url ? { method, url } : { url: method }, options);
@@ -2104,10 +2113,10 @@ function parseRouteAndOptions(route, options) {
 }
 
 const request = (route, options) => {
-    const requestWrapper = endpoint(route, options);
-    // RequestInterface prototype
-    return Object.assign(requestWrapper);
+    const newEndpoint = endpoint(route, options);
+    return Object.assign(newEndpoint);
 };
+request.defaults = requestWithDefaults;
 
 exports.request = request;
 //# sourceMappingURL=bundle.js.map

@@ -1,9 +1,9 @@
 import { fetch } from './fetch';
 import {
-  Endpoints,
-  FigmaAPIResponse,
   RequestMethod,
-  RequestHeaders,
+  EndpointInterface,
+  RequestParameters,
+  RequestInterface,
 } from './types';
 import { addQueryParameters } from './util/add-query-parameters';
 import { extractUrlVariableNames } from './util/extract-url-variable-names';
@@ -11,34 +11,6 @@ import { lowercaseKeys } from './util/lowercase-keys';
 import { omit } from './util/omit';
 import { removeUndefinedProperties } from './util/remove-undefined-properties';
 import { parseUrl } from './util/url-template';
-
-type RequestParameters = {
-  headers?: RequestHeaders;
-};
-
-type EndpointInterface<R extends string = string> = (
-  route: R | keyof Endpoints,
-  options?: R extends keyof Endpoints
-    ? Endpoints[R]['parameters'] & RequestParameters
-    : RequestParameters
-) => R extends keyof Endpoints
-  ? Promise<Endpoints[R]['responses']>
-  : Promise<FigmaAPIResponse<any>>;
-
-/**
- * Interface Object Type
- */
-export type RequestInterface = {
-  // request binded type
-  <R extends string>(
-    route: R | keyof Endpoints,
-    options?: R extends keyof Endpoints
-      ? Endpoints[R]['parameters'] & RequestParameters
-      : RequestParameters
-  ): R extends keyof Endpoints
-    ? Promise<Endpoints[R]['responses']>
-    : Promise<FigmaAPIResponse<any>>;
-};
 
 /**
  * figma api wrapper request function
@@ -110,6 +82,20 @@ export const endpoint: EndpointInterface = (route, options) => {
     parameters,
   });
 };
+
+export function requestWithDefaults(
+  newDefaults: RequestParameters
+): RequestInterface {
+  const newEndpoint: EndpointInterface = (route, options) => {
+    const optionsWithDefaults: RequestParameters = {
+      ...newDefaults,
+      ...options,
+    };
+
+    return endpoint(route, optionsWithDefaults);
+  };
+  return Object.assign(newEndpoint);
+}
 
 function parseRouteAndOptions(route: string, options?: RequestParameters) {
   const [method, url] = route.split(' ');

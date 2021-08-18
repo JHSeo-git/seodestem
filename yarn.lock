@@ -1323,10 +1323,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@figma/plugin-typings@npm:^1.29.0":
-  version: 1.29.0
-  resolution: "@figma/plugin-typings@npm:1.29.0"
-  checksum: 07b0ca108dc10a95a65ba1e7d333395bd38aa5ecfcd27c19a258a96c75a82205b0d39d4e3aad0f642f805c099f4355adb79bb73829d6373f510dccf1ca6c1189
+"@figma/plugin-typings@npm:^1.30.0":
+  version: 1.30.0
+  resolution: "@figma/plugin-typings@npm:1.30.0"
+  checksum: 6ad22aabadae574c002d7ed137044d287fc1f3ca3e879b63eb19bacdc0a3250d5595f66c4448c2d8d0b0fff66cc0961a0a3970b14a61f7e6226731f7eb2fcbbb
   languageName: node
   linkType: hard
 
@@ -1674,8 +1674,11 @@ __metadata:
     "@types/babel__core": ^7
     "@types/babel__plugin-transform-runtime": ^7
     "@types/babel__preset-env": ^7
+    "@types/jest": ^27.0.1
     "@types/node": ^16.4.12
     "@types/rimraf": ^3
+    dotenv: ^10.0.0
+    jest: ^27.0.6
     rimraf: ^3.0.2
     rollup-plugin-terser: ^7.0.2
     tslib: ^2.3.0
@@ -1692,7 +1695,7 @@ __metadata:
     "@babel/plugin-transform-runtime": ^7.15.0
     "@babel/preset-env": ^7.15.0
     "@babel/preset-typescript": ^7.15.0
-    "@figma/plugin-typings": ^1.29.0
+    "@figma/plugin-typings": ^1.30.0
     "@rollup/plugin-babel": ^5.3.0
     "@rollup/plugin-commonjs": ^20.0.0
     "@rollup/plugin-node-resolve": ^13.0.4

@@ -3,7 +3,6 @@ import http from 'http';
 import Url from 'url';
 import https from 'https';
 import zlib from 'zlib';
-import '@figma/plugin-typings';
 
 // Based on https://github.com/tmpvar/jsdom/blob/aa85b2abf07766ff7bf5c1f6daafb3726f2f2db5/lib/jsdom/living/blob.js
 
@@ -2082,6 +2081,16 @@ const endpoint = (route, options) => {
         parameters,
     });
 };
+function requestWithDefaults(newDefaults) {
+    const newEndpoint = (route, options) => {
+        const optionsWithDefaults = {
+            ...newDefaults,
+            ...options,
+        };
+        return endpoint(route, optionsWithDefaults);
+    };
+    return Object.assign(newEndpoint);
+}
 function parseRouteAndOptions(route, options) {
     const [method, url] = route.split(' ');
     const mergedOptions = Object.assign(url ? { method, url } : { url: method }, options);
@@ -2091,18 +2100,18 @@ function parseRouteAndOptions(route, options) {
     return mergedOptions;
 }
 
-const request = (route, options) => {
-    const requestWrapper = endpoint(route, options);
-    // RequestInterface prototype
-    return Object.assign(requestWrapper);
-};
+const request = requestWithDefaults({});
 
 class SeoDestemKit {
-    baseUrl;
+    token;
     request;
-    constructor(baseUrl) {
-        this.baseUrl = baseUrl ?? 'https://api.figma.com';
-        this.request = request;
+    constructor(token) {
+        this.token = token;
+        this.request = request.defaults({
+            headers: {
+                'X-FIGMA-TOKEN': token,
+            },
+        });
     }
 }
 

@@ -1,6 +1,6 @@
 import { request } from '@seodestem/figma-api';
 export declare class SeoDestemKit {
-    baseUrl: string;
+    token: string;
     request: typeof request;
-    constructor(baseUrl?: string);
+    constructor(token: string);
 }

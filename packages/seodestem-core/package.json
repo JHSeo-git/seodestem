@@ -49,6 +49,7 @@
     "typescript": "^4.3.5"
   },
   "dependencies": {
+    "@figma/plugin-typings": "^1.30.0",
     "@seodestem/figma-api": "workspace:packages/seodestem-figma-api",
     "dotenv": "^10.0.0"
   }

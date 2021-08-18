@@ -1,4 +1,4 @@
-import type from '@figma/plugin-typings';
+import type figmaPluginTypings from '@figma/plugin-typings';
 
 export * from './common';
 export * from './endpoints';

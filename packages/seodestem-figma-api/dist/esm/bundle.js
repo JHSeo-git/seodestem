@@ -2104,6 +2104,7 @@ const request = (route, options) => {
     const newEndpoint = endpoint(route, options);
     return Object.assign(newEndpoint);
 };
+// FIXME: prototype
 request.defaults = requestWithDefaults;
 
 export { request };

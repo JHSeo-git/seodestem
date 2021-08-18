@@ -1,13 +1,14 @@
+import type from '@figma/plugin-typings';
 import { request } from '@seodestem/figma-api';
 
 export class SeoDestemKit {
-  token: string;
+  private token: string;
   request: typeof request;
   constructor(token: string) {
     this.token = token;
     this.request = request.defaults({
       headers: {
-        'X-FIGMA-TOKEN': token,
+        'X-FIGMA-TOKEN': this.token,
       },
     });
   }

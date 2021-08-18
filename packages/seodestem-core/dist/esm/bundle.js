@@ -2100,7 +2100,12 @@ function parseRouteAndOptions(route, options) {
     return mergedOptions;
 }
 
-const request = requestWithDefaults({});
+const request = (route, options) => {
+    const newEndpoint = endpoint(route, options);
+    return Object.assign(newEndpoint);
+};
+// FIXME: prototype
+request.defaults = requestWithDefaults;
 
 class SeoDestemKit {
     token;

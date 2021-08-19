@@ -1,11 +1,4 @@
-import { endpoint, requestWithDefaults } from './request';
-import { RequestInterface } from './types';
+import { requestWithDefaults } from './request';
 export * from './types';
 
-export const request: RequestInterface = (route, options) => {
-  const newEndpoint = endpoint(route, options);
-
-  return Object.assign(newEndpoint);
-};
-// FIXME: prototype
-request.defaults = requestWithDefaults;
+export const request = requestWithDefaults({});

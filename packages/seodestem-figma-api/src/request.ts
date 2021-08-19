@@ -94,7 +94,9 @@ export function requestWithDefaults(
 
     return endpoint(route, optionsWithDefaults);
   };
-  return Object.assign(newEndpoint);
+  return Object.assign(newEndpoint, {
+    defaults: requestWithDefaults,
+  }) as RequestInterface;
 }
 
 function parseRouteAndOptions(route: string, options?: RequestParameters) {

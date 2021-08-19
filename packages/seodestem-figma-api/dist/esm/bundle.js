@@ -2089,7 +2089,9 @@ function requestWithDefaults(newDefaults) {
         };
         return endpoint(route, optionsWithDefaults);
     };
-    return Object.assign(newEndpoint);
+    return Object.assign(newEndpoint, {
+        defaults: requestWithDefaults,
+    });
 }
 function parseRouteAndOptions(route, options) {
     const [method, url] = route.split(' ');
@@ -2100,12 +2102,7 @@ function parseRouteAndOptions(route, options) {
     return mergedOptions;
 }
 
-const request = (route, options) => {
-    const newEndpoint = endpoint(route, options);
-    return Object.assign(newEndpoint);
-};
-// FIXME: prototype
-request.defaults = requestWithDefaults;
+const request = requestWithDefaults({});
 
 export { request };
 //# sourceMappingURL=bundle.js.map

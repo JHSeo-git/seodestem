@@ -1,3 +1,2 @@
-import { RequestInterface } from './types';
 export * from './types';
-export declare const request: RequestInterface;
+export declare const request: import("./types").RequestInterface;

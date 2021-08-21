@@ -23,3 +23,5 @@ import type from '@figma/plugins-typesdfs..';
 ```
 
 이렇게 하면 문제 없이 돌아가는데 옵션같은거 주면 될거 같은데 뭔지를 모르겠음...
+문제는 빌드 파일에 해당 lib이 들어가지 않는다.
+type으로 인식하기 때문에 resolver가 무시하고 지나가버린다.

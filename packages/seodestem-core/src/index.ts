@@ -1,4 +1,3 @@
-import type from '@figma/plugin-typings';
 import { request } from '@seodestem/figma-api';
 
 export class SeoDestemKit {

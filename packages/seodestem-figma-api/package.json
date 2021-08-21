@@ -8,6 +8,7 @@
   "author": "JHSeo <qnfqnfqnf@gmail.com>",
   "source": "src/index.ts",
   "types": "dist/types/index.d.ts",
+  "typings": "dist/types",
   "main": "dist/cjs/bundle.js",
   "module": "dist/esm/bundle.js",
   "exports": {
@@ -48,7 +49,6 @@
   },
   "dependencies": {
     "@figma/plugin-typings": "^1.30.0",
-    "axios": "^0.21.1",
     "dotenv": "^10.0.0",
     "is-plain-object": "^5.0.0",
     "node-fetch": "^2.6.1"

@@ -8,6 +8,7 @@
   "author": "JHSeo <qnfqnfqnf@gmail.com>",
   "source": "src/index.ts",
   "types": "dist/types/index.d.ts",
+  "typings": "dist/types",
   "main": "dist/cjs/bundle.js",
   "module": "dist/esm/bundle.js",
   "exports": {

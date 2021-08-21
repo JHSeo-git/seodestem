@@ -1,0 +1,6 @@
+src
+test
+*.log
+coverage
+reference
+.env

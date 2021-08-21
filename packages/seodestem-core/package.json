@@ -1,8 +1,13 @@
 {
   "name": "@seodestem/core",
-  "packageManager": "yarn@3.0.0",
-  "version": "0.0.1",
   "description": "seo's design system core library",
+  "version": "0.0.1",
+  "packageManager": "yarn@3.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JHSeo-git/seodestem.git",
+    "directory": "packages/seodestem-core"
+  },
   "homepage": "https://github.com/JHSeo-git/seodestem/blob/master/packages/seodestem-core/README.md",
   "license": "MIT",
   "author": "JHSeo <qnfqnfqnf@gmail.com>",

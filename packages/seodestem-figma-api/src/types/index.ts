@@ -1,10 +1,10 @@
-import type figmaPluginTypings from '@figma/plugin-typings';
+// import type figmaPluginTypings from '@figma/plugin-typings';
 
-/**
- * @see https://github.com/figma/plugin-typings
- */
-export { figmaPluginTypings };
-
+// /**
+//  * @see https://github.com/figma/plugin-typings
+//  */
+// export { figmaPluginTypings };
+export * from './figma';
 export * from './common';
 export * from './endpoints';
 export * from './path-routes';

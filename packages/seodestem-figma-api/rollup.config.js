@@ -35,7 +35,7 @@ export default args => {
         exports: 'named',
       },
     ],
-    external: [/@babel\/runtime/, '@figma/plugin-typings'],
+    external: [/@babel\/runtime/, /@figma\plugin-typings/],
     plugins: [
       // ...plugins,
       typescript(),

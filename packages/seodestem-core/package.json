@@ -25,7 +25,7 @@
     "test:coverage": "jest --coverage",
     "peer": "yarn explain peer-requirements",
     "clean": "rimraf ./dist",
-    "tsc:type": "tsc --emitDeclarationOnly",
+    "tsc:type": "tsc",
     "build": "rollup -c rollup.config.js && yarn tsc:type",
     "build:debug": "rollup -c rollup.config.js --debug && yarn tsc:type",
     "build:babel-esm": "BABEL_ENV=esm babel src --extensions '.ts' --out-file 'dist/bundles/bundle.esm.js' --source-maps",

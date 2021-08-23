@@ -25,7 +25,7 @@
     "test:coverage": "jest --coverage",
     "peer": "yarn explain peer-requirements",
     "clean": "rimraf ./dist",
-    "tsc:type": "tsc --emitDeclarationOnly",
+    "tsc:type": "tsc",
     "build": "yarn clean && rollup -c rollup.config.js && yarn tsc:type",
     "build:debug": "yarn clean && rollup -c rollup.config.js --debug && yarn tsc:type"
   },

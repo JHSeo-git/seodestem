@@ -19,3 +19,4 @@
 > - https://github.com/rollup/plugins/issues/247
 >
 > 아직 이슈가 완전히 해결되지 않은 것 처럼 보이며, 중간에 어떤 댓글 보면 tsc를 이용해 그냥 type을 생성하는 것으로 변경하였다고 적혀있다.
+> 나도 그렇게 emitDelarationOnly flag를 이용해 build와 별개로 type을 생성하도록 함.

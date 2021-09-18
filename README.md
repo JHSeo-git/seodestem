@@ -49,6 +49,8 @@ root `package.json` 에서 설정
 
 ## 5. vscode yarn berry typescript
 
+> root에서 VS Code를 열어 작업을 진행할 때
+
 root package.json에 typescript를 추가시켜줘야 vscode에서 그 typescript 버전을 보고 server 를 실행한다.
 
 yarn berry 설정 시에 프로젝트 typescript 버전으로 선택하여 진행하기 때문에 이런 설정을 해주어야 한다.
